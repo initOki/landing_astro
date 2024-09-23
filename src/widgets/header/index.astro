@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import SeoltabLogo from './seoltab-logo.webp';
+---
+
+<header>
+  <div class="flex items-center justify-around w-full max-w-[1120px]">
+    <div class="w-[63px]">
+      <Image src={SeoltabLogo} alt="설탭 로고" />
+    </div>
+
+    <div>
+      <ul class="flex gap-[40px] text-[#FFFFFF]">
+        <li>과목별</li>
+        <li>선생님</li>
+        <li>수강후기</li>
+        <li>입시정보</li>
+        <li>개념인강</li>
+        <li>FAQ</li>
+      </ul>
+    </div>
+
+    <div class="flex items-center gap-[20px]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="pc:block"
+        ><title>Go to login</title><path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M7.45907 14.25C6.38654 14.25 5.4631 15.007 5.25276 16.0587L4.5 20.5H3L3.78189 15.7646C4.13246 14.0117 5.67151 12.75 7.45907 12.75H16.5402C18.3278 12.75 19.8668 14.0117 20.2174 15.7646L20.9998 20.5H19.5L18.7466 16.0587C18.5362 15.007 17.6128 14.25 16.5402 14.25H7.45907Z"
+          fill="white"></path><path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12 4.75C10.4812 4.75 9.25 5.98122 9.25 7.5C9.25 9.01878 10.4812 10.25 12 10.25C13.5188 10.25 14.75 9.01878 14.75 7.5C14.75 5.98122 13.5188 4.75 12 4.75ZM7.75 7.5C7.75 5.15279 9.65279 3.25 12 3.25C14.3472 3.25 16.25 5.15279 16.25 7.5C16.25 9.84721 14.3472 11.75 12 11.75C9.65279 11.75 7.75 9.84721 7.75 7.5Z"
+          fill="white"></path></svg
+      >
+      <button class="bg-[#8B5FF1] text-[#FFFFFF] px-[12px] py-[4px] rounded-full">수강결제</button>
+    </div>
+  </div>
+</header>
+
+<style is:inline>
+  header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 0;
+    background-color: #000000;
+    transition: all 0.3s;
+  }
+</style>
+
+<script>
+  let lastScrollTop = 0;
+
+  const header = document.querySelector('header');
+
+  const getBannerHeight = () => {
+    const banner = document.querySelector('.banner');
+    return banner ? banner?.clientHeight : 0;
+  };
+
+  if (header) {
+    header.style.top = `${getBannerHeight() - 1}px`;
+  }
+
+  window.addEventListener('resize', () => {
+    if (header) {
+      header.style.top = `${getBannerHeight() - 1}px`;
+    }
+  });
+
+  document.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      if (header) {
+        header.style.top = '-100px';
+      }
+    } else if (scrollTop < lastScrollTop) {
+      if (header) {
+        header.style.top = `${getBannerHeight() - 1}px`;
+      }
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+  });
+</script>

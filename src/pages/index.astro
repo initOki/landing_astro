@@ -1,8 +1,37 @@
 ---
 import Layout from '../apps/layouts/Layout.astro';
-import BandBanner from '~/widgets/band-banner/index.astro';
+import MainBanner from '../widgets/main/main-banner/index.astro';
+import Section1 from '~/widgets/main/section1/index.astro';
 ---
 
 <Layout title="NO.1 SKY 과외 설탭::내 마음을 알아주는 선생님">
-  <BandBanner />
+  <div class="main-contents">
+    <MainBanner />
+    <Section1 />
+  </div>
 </Layout>
+
+<script>
+  const mainContentsBox = document.querySelector('.main-contents');
+
+  const getBandBannerHeight = () => {
+    const banner = document.querySelector('.banner');
+    return banner ? banner.clientHeight : 0;
+  };
+
+  const getHeaderHeight = () => {
+    const header = document.querySelector('header');
+    return header ? header.clientHeight : 0;
+  };
+
+  if (mainContentsBox) {
+    mainContentsBox.style.paddingTop = `${getBandBannerHeight() + getHeaderHeight()}px`;
+  }
+
+  window.addEventListener('resize', () => {
+    const mainContentsBox = document.querySelector('.main-contents');
+    if (mainContentsBox) {
+      mainContentsBox.style.paddingTop = `${getBandBannerHeight() + getHeaderHeight()}px`;
+    }
+  });
+</script>
