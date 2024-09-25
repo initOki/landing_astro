@@ -2,12 +2,28 @@
 import Layout from '../apps/layouts/Layout.astro';
 import MainBanner from '../widgets/main/main-banner/index.astro';
 import Section1 from '~/widgets/main/section1/index.astro';
+import MainFixedMenu from '~/widgets/main/main-fixed-menu/index.astro';
+import EffectSection1 from '../widgets/main/effect-section1.astro';
+import EffectSection2 from '../widgets/main/effect-section2.astro';
+import EffectSection3 from '../widgets/main/effect-section3.astro';
+import EffectSection4 from '../widgets/main/effect-section4.astro';
+import TeacherSection1 from '../widgets/main/teacher-section1.astro';
 ---
 
 <Layout title="NO.1 SKY 과외 설탭::내 마음을 알아주는 선생님">
   <div class="main-contents">
     <MainBanner />
     <Section1 />
+    <MainFixedMenu />
+    <div>
+      <EffectSection1 />
+      <EffectSection2 />
+      <EffectSection3 />
+      <EffectSection4 />
+    </div>
+    <div>
+      <TeacherSection1 />
+    </div>
   </div>
 </Layout>
 

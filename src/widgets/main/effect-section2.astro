@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import TeacherSectionImage from './effect-section2-image.webp';
+---
+
+<div class="teacher-gradient-background flex justify-center items-center flex-col py-[120px]">
+  <div class="mb-[80px]">
+    <p class="text-[#000000] text-[60px] font-[700] text-center">설탭 수강생 2명 중 1명은</p>
+    <p class="text-[#8b5ff1] text-[60px] font-[700] text-center">3개월 만에 성적이 올랐어요</p>
+  </div>
+
+  <div class="max-w-[640px] w-full mb-[50px]">
+    <Image src={TeacherSectionImage} alt="선생님 섹션 이미지" />
+  </div>
+
+  <div class="rounded-[9999px] bg-[#f3edff] py-[14px] px-[40px] mb-[12px]">
+    <p class="text-[40px] text-[#8b5ff1] font-[700]">수강생 1,574명 가운데 867명 성적 상승</p>
+  </div>
+
+  <p class="text-[20px] font-[400] text-[#94a3b8]">2023.12~2024.01 기준 설탭 수강생 대상 조사</p>
+</div>
+
+<style is:inline>
+  .teacher-gradient-background {
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 62.04%, rgba(139, 95, 241, 0.12)),
+      linear-gradient(0deg, hsla(0, 0%, 100%, 0) 41.94%, rgba(139, 95, 241, 0.12)), #fff;
+  }
+</style>

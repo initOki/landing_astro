@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import EffectSection4Image from './effect-section4-image.webp';
+---
+
+<div class="effect-section3-background flex items-center justify-center py-[120px]">
+  <div class="max-w-[1120px] w-full">
+    <div class="flex items-center justify-center flex-col mb-[60px]">
+      <p class="text-[60px] font-[700]">설탭은 오직 우리 아이에게만</p>
+      <p class="text-[60px] font-[700] text-[#8b5ff1]">집중하는 1:1 과외 솔루션입니다.</p>
+    </div>
+
+    <div class="flex items-center justify-center flex-col">
+      <div class="flex items-center justify-center flex-col w-full bg-[#FFFFFF] rounded-[12px] py-[60px]">
+        <div class="w-[180px] mb-[30px]">
+          <Image src={EffectSection4Image} alt="후기 학생 이미지" />
+        </div>
+        <p class="text-[#FFD952] text-[26px] mb-[10px]">★★★★★</p>
+        <p class="text-[24px] text-center mb-[40px]">
+          학원은 벼락치기로 문제만 맞추게 한다면,<br />설탭은 진짜 실력을 탄탄하게 길러줘서 수능까지 걱정 없어요.
+        </p>
+        <p class="text-[20px]">설탭 수강생 이희원님</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:inline>
+  .effect-section3-background {
+    background: #fbf8ff;
+  }
+</style>
