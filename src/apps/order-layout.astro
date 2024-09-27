@@ -1,0 +1,77 @@
+---
+import Banner from '~/widgets/band-banner/index.astro';
+import Header from '~/widgets/header/index.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    background: #252525;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .default-item-box {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 18px 24px;
+    background-color: #ffffff;
+    border-radius: 4px;
+  }
+
+  .default-item-button {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid #dae0ea;
+    border-radius: 6px;
+    font-size: 15px;
+    //color: #27364b;
+  }
+
+  .default-item-input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid #dae0ea;
+    border-radius: 6px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+  }
+
+  .default-item-input:focus {
+    border: 1px solid #27364b;
+  }
+</style>
