@@ -1,17 +1,22 @@
 ---
-import UserInfo from './ui/user-info/index.astro';
-import Subject from './ui/subject/index.astro';
-import Time from './ui/time/index.astro';
-import Month from './ui/month/index.astro';
-import AddPackageButton from './ui/add-package/index.astro';
+import UserInfo from './ui/user-info.astro';
+import Subject from './ui/subject';
+import Time from './ui/time';
+import Month from './ui/month';
+import AddPackageButton from './ui/add-package.astro';
 ---
 
 <div class="flex items-center justify-center w-full py-[100px] px-[24px]">
   <div class="w-full max-w-[768px]">
     <UserInfo />
-    <Subject />
-    <Time />
-    <Month />
+    <Subject client:load />
+    <Time client:load />
+    <Month client:load />
     <AddPackageButton />
   </div>
 </div>
+
+<script>
+  import { subjectButton } from './lib/constants';
+  console.log(subjectButton);
+</script>
